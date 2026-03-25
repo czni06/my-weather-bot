@@ -15,7 +15,7 @@ USER_ID = 'Uda5b906e9c742d49258df979d1f849ca' # 推播必備
 line_bot_api = LineBotApi(LINE_ACCESS_TOKEN)
 handler = WebhookHandler(LINE_CHANNEL_SECRET)
 
-@app.route("/", methods=['POST'])
+@app.route("/", methods=['GET', 'POST'])
 def callback():
     signature = request.headers['X-Line-Signature']
     body = request.get_data(as_text=True)
