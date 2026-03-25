@@ -104,7 +104,6 @@ def handle_text(event):
         save_config(alarm_time=text)
         line_bot_api.reply_message(event.reply_token, [
             ImageSendMessage(original_content_url=IMG_URL_UNDERSTAND, preview_image_url=IMG_URL_UNDERSTAND),
-            TextSendMessage(text=f"⏰ 已將每天通知時間設為：{text}")
         ])
 
 @app.route("/push")
