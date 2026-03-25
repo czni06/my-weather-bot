@@ -1,5 +1,10 @@
 import os
 import requests
+import requests
+from urllib3.exceptions import InsecureRequestWarning
+
+# 停用安全警告
+requests.packages.urllib3.disable_warnings(category=InsecureRequestWarning)
 from flask import Flask, request, abort
 from linebot import LineBotApi, WebhookHandler
 from linebot.exceptions import InvalidSignatureError
