@@ -40,7 +40,7 @@ def callback():
 def morning_alarm():
     city = "臺北市" # 改成你的縣市
     url = f"https://opendata.cwa.gov.tw/api/v1/rest/datastore/F-C0032-001?Authorization={CWA_TOKEN}&locationName={city}"
-    res = requests.get(url).json()
+    res = requests.get(url, verify=False).json()
     data = res['records']['location'][0]['weatherElement']
     wx = data[0]['time'][0]['parameter']['parameterName']
     pop = data[1]['time'][0]['parameter']['parameterName']
