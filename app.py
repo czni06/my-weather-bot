@@ -15,15 +15,25 @@ USER_ID = 'Uda5b906e9c742d49258df979d1f849ca' # 推播必備
 line_bot_api = LineBotApi(LINE_ACCESS_TOKEN)
 handler = WebhookHandler(LINE_CHANNEL_SECRET)
 
-@app.route("/", methods=['GET', 'POST'])
+@app.route("/", methods=['POST'])
 def callback():
-    signature = request.headers['X-Line-Signature']
+    # 取得 X-Line-Signature 標頭
+    signature = request.headers.get('X-Line-Signature')
+
+    # 如果沒簽章，代表這不是 LINE 傳來的，直接不理它
+    if not signature:
+        return 'OK', 200
+
+    # 取得請求內容
     body = request.get_data(as_text=True)
+    
     try:
         handler.handle(body, signature)
-    except InvalidSignatureError:
-        abort(400)
-    return 'OK'
+    except Exception as e:
+        print(e)
+        return 'Error', 400
+
+    return 'OK', 200
 
 # 氣象推播路由 (給 Cron-job 呼叫用)
 @app.route("/alarm")
