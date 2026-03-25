@@ -6,10 +6,10 @@ from linebot.models import MessageEvent, TextMessage, LocationMessage, TextSendM
 from datetime import datetime
 
 # --- 1. 圖片網址設定 (請更換為你上傳後的真實網址) ---
-IMG_URL_UNDERSTAND = "https://你的網址/了解.png"
-IMG_URL_RAIN = "https://你的網址/下雨.png"
-IMG_URL_SUN = "https://你的網址/不想曬黑.png"
-IMG_URL_FIGHT = "https://你的網址/加油.png"
+IMG_URL_UNDERSTAND = "https://raw.githubusercontent.com/czni06/my-weather-bot/main/IMG_9805.jpeg"
+IMG_URL_RAIN = "https://raw.githubusercontent.com/czni06/my-weather-bot/main/IMG_9803.jpeg"
+IMG_URL_SUN = "https://raw.githubusercontent.com/czni06/my-weather-bot/main/IMG_9804.jpeg"
+IMG_URL_FIGHT = "https://raw.githubusercontent.com/czni06/my-weather-bot/main/IMG_9806.jpeg"
 
 # --- 2. 從環境變數讀取 Token (安全性更高) ---
 CWA_TOKEN = os.getenv('CWA_TOKEN')
